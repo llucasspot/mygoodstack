@@ -1,0 +1,33 @@
+{
+  "name": "@mygoodstack/di-core",
+  "version": "0.1.0",
+  "description": "Dependency injection core for MyGoodStack",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "peerDependencies": {
+    "reflect-metadata": "^0.2.1",
+    "tsyringe": "^4.8.0"
+  },
+  "dependencies": {
+    "inversify": "^7.5.2",
+    "reflect-metadata": "^0.2.1",
+    "tsyringe": "^4.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^0.25.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
