@@ -2,13 +2,14 @@
   "name": "@mygoodstack/di-core",
   "version": "0.1.0",
   "description": "Dependency injection core for MyGoodStack",
-  "main": "src/index.ts",
-  "files": [
-    "dist"
-  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.module.js",
+  "unpkg": "./dist/index.umd.js",
+  "types": "./dist/index.d.ts",
+  "source": "src/index.ts",
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "build": "microbundle",
+    "dev": "microbundle watch",
     "test": "vitest",
     "lint": "eslint src --ext .ts,.tsx"
   },
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
+    "microbundle": "^0.15.1",
     "tsup": "^8.0.0",
     "typescript": "^5.0.0",
     "vitest": "^0.25.0"
