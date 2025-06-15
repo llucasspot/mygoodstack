@@ -1,4 +1,4 @@
-import {container as tsyringeContainer, DependencyContainer, Lifecycle, inject as tsyringeInject, injectable as tsyringeInjectable} from "tsyringe";
+import {container as tsyringeContainer, type DependencyContainer, Lifecycle, inject as tsyringeInject, injectable as tsyringeInjectable} from "tsyringe";
 import type {Token, Type} from "../types";
 import {ContainerI} from "./ContainerI";
 

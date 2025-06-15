@@ -1,5 +1,5 @@
 import {containerByEnv} from "../container/containerByEnv";
-import {Type} from "../types";
+import type {Type} from "../types";
 import {adapter} from "./adapter";
 
 export const singleton = <T>(

@@ -1,6 +1,6 @@
 import {containerByEnv} from "../container/containerByEnv";
 import {ContainerI} from "../container/ContainerI";
-import {Token, Type} from "../types";
+import type {Token, Type} from "../types";
 import {injectable} from "./injectable";
 
 export const adapter = <T>(

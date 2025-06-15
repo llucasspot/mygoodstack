@@ -1,4 +1,4 @@
-import {Type} from "../types";
+import type {Type} from "../types";
 
 const isInLineProvider = (
     provider: Type,
