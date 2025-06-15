@@ -16,6 +16,7 @@
     "demo:build": "cd examples/react-demo && pnpm build"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.4",
     "@types/node": "^20.0.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
