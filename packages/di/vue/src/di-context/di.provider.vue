@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import {ContainerI} from "@mygoodstack/di-core";
 import {provide} from 'vue';
-import {useState} from "../use-state.ts";
-import {diContainerKey} from "./di-container-key.ts";
+import {useState} from "../use-state";
+import {diContainerKey} from "./di-container-key";
 
 const props = defineProps<{
   container: ContainerI;
