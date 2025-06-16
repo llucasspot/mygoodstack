@@ -1,6 +1,5 @@
-// import 'reflect-metadata';
-import {containerByEnv} from "@mygoodstack/di-core";
-import {DIProvider} from "@mygoodstack/di-react";
+import 'reflect-metadata';
+import {DIProvider, containerByEnv} from "@mygoodstack/di-react/src";
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'

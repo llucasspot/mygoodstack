@@ -1,6 +1,6 @@
 import viteLogo from '/vite.svg'
 import './App.css'
-import {useInstance} from "@mygoodstack/di-react";
+import {useInstance} from "@mygoodstack/di-react/src";
 import {useState} from 'react'
 import reactLogo from './assets/react.svg'
 import {UserService} from "./services/user.service";

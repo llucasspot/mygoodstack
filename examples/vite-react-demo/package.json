@@ -10,10 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mygoodstack/di-core": "workspace:*",
     "@mygoodstack/di-react": "workspace:*",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "reflect-metadata": "^0.2.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

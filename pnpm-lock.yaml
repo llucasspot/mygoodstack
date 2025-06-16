@@ -108,18 +108,18 @@ importers:
 
   examples/vite-react-demo:
     dependencies:
-      '@mygoodstack/di-core':
-        specifier: workspace:*
-        version: link:../../packages/di/core
       '@mygoodstack/di-react':
         specifier: workspace:*
-        version: link:../../packages/di/react
+        version: link:../../packages/di-react
       react:
         specifier: ^19.1.0
         version: 19.1.0
       react-dom:
         specifier: ^19.1.0
         version: 19.1.0(react@19.1.0)
+      reflect-metadata:
+        specifier: ^0.2.1
+        version: 0.2.2
     devDependencies:
       '@eslint/js':
         specifier: ^9.25.0
@@ -159,10 +159,10 @@ importers:
     dependencies:
       '@mygoodstack/di-core':
         specifier: workspace:*
-        version: link:../../packages/di/core
+        version: link:../../packages/di-core
       '@mygoodstack/di-vue':
         specifier: workspace:*
-        version: link:../../packages/di/vue
+        version: link:../../packages/di-vue
       vue:
         specifier: ^3.5.13
         version: 3.5.16(typescript@5.8.3)
@@ -186,7 +186,7 @@ importers:
         specifier: ^2.2.8
         version: 2.2.10(typescript@5.8.3)
 
-  packages/di/core:
+  packages/di-core:
     dependencies:
       inversify:
         specifier: ^7.5.2
@@ -214,11 +214,11 @@ importers:
         specifier: ^0.25.0
         version: 0.25.8
 
-  packages/di/react:
+  packages/di-react:
     dependencies:
       '@mygoodstack/di-core':
-        specifier: workspace:*
-        version: link:../core
+        specifier: workspace:^0.1.2
+        version: link:../di-core
       react:
         specifier: ^19.1.0
         version: 19.1.0
@@ -266,11 +266,11 @@ importers:
         specifier: ^6.3.5
         version: 6.3.5(@types/node@20.19.0)(sass@1.88.0)
 
-  packages/di/vue:
+  packages/di-vue:
     dependencies:
       '@mygoodstack/di-core':
         specifier: workspace:*
-        version: link:../core
+        version: link:../di-core
       vue:
         specifier: ^3.5.13
         version: 3.5.16(typescript@5.8.3)

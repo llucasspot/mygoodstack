@@ -9,8 +9,8 @@
   "source": "src/index.ts",
   "files": ["dist", "package.json", "README.md"],
   "scripts": {
-    "build": "microbundle",
-    "dev": "microbundle watch",
+    "build": "tsc --build",
+    "dev": "tsup --watch",
     "lint": "eslint .",
     "preview": "vite preview"
   },
