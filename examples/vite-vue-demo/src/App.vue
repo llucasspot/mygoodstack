@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {useInstance} from "@mygoodstack/di-vue/src/di-context/use-instance.hook";
+import {useInstance} from "@mygoodstack/di-vue";
 import HelloWorld from './components/HelloWorld.vue'
 import {UserService} from "./services/user.service";
 

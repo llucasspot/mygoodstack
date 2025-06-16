@@ -158,7 +158,7 @@ importers:
   examples/vite-vue-demo:
     dependencies:
       '@mygoodstack/di-vue':
-        specifier: workspace:*
+        specifier: workspace:0.1.0
         version: link:../../packages/di-vue
       reflect-metadata:
         specifier: ^0.2.1

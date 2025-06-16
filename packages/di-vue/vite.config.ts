@@ -5,11 +5,18 @@ import dts from "vite-plugin-dts";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [vue(), dts()],
+  plugins: [
+    vue(),
+    dts({
+      insertTypesEntry: true,
+      entryRoot: 'src',
+      tsconfigPath: './tsconfig.app.json',
+    }),
+  ],
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
-      name: "index",
+      formats: ["es"],
       fileName: "index",
     },
     rollupOptions: {
@@ -20,5 +27,6 @@ export default defineConfig({
         },
       },
     },
+    sourcemap: true,
   },
 })

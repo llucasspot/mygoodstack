@@ -3,13 +3,21 @@
   "version": "0.1.0",
   "description": "Dependency injection for Vue",
   "module": "./dist/index.mjs",
-  "unpkg": "./dist/index.umd.js",
   "types": "./dist/index.d.ts",
   "source": "src/index.ts",
-  "files": [
-    "dist",
-    "package.json",
-    "README.md"
+  "files": ["dist", "package.json", "README.md"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/llucasspot/mygoodstack.git",
+    "directory": "packages/di-vue"
+  },
+  "bugs": {
+    "url": "https://github.com/llucasspot/mygoodstack/issues"
+  },
+  "keywords": [
+    "vue",
+    "di",
+    "dependency injection"
   ],
   "scripts": {
     "build": "vite build",

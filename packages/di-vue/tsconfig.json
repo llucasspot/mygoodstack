@@ -1,4 +1,8 @@
 {
+  "compilerOptions": {
+    /* build */
+    "composite": true
+  },
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
