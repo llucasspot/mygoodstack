@@ -1,1 +1,1 @@
-export const diContainerKey = Symbol('di-container');
+export const diContainerKey = '@mygoodstack/di-container-key' as const;
