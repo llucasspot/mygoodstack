@@ -109,7 +109,7 @@ importers:
   examples/vite-react-demo:
     dependencies:
       '@mygoodstack/di-react':
-        specifier: workspace:*
+        specifier: workspace:^0.1.4
         version: link:../../packages/di-react
       react:
         specifier: ^19.1.0

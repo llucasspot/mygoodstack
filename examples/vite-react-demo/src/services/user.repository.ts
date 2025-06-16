@@ -1,4 +1,4 @@
-import {adapter} from "@mygoodstack/di-react/src";
+import {adapter} from "@mygoodstack/di-react";
 import {UserRepositoryPort} from "./user.repository.port";
 
 @adapter(UserRepositoryPort)

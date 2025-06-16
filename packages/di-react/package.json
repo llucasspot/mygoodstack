@@ -1,6 +1,6 @@
 {
   "name": "@mygoodstack/di-react",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Dependency injection for React",
   "main": "./dist/index.cjs",
   "module": "./dist/index.module.js",
@@ -9,8 +9,8 @@
   "source": "src/index.ts",
   "files": ["dist", "package.json", "README.md"],
   "scripts": {
-    "build": "tsc --build",
-    "dev": "tsup --watch",
+    "build": "microbundle",
+    "dev": "microbundle watch",
     "lint": "eslint .",
     "preview": "vite preview"
   },

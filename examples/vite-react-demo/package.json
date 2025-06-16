@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mygoodstack/di-react": "workspace:*",
+    "@mygoodstack/di-react": "workspace:^0.1.5",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "reflect-metadata": "^0.2.1"
