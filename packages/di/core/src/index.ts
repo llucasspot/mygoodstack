@@ -1,4 +1,3 @@
-import "reflect-metadata"
 export type {Token, Type, Abstract} from "./types";
 
 export {ContainerI} from './container/ContainerI'
