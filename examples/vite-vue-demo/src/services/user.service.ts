@@ -1,4 +1,4 @@
-import {inject, singleton} from "@mygoodstack/di-core";
+import {inject, singleton} from "@mygoodstack/di-vue";
 import {UserRepositoryPort} from "./user.repository.port";
 
 @singleton()

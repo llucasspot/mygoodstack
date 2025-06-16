@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { createApp } from 'vue'
 import './style.css'
 import AppWithProvider from "./AppWithProvider.vue";
