@@ -1,23 +1,40 @@
 {
   "name": "@mygoodstack/di-react",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Dependency injection for React",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.module.js",
-  "unpkg": "./dist/index.umd.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "source": "src/index.ts",
-  "files": ["dist", "package.json", "README.md"],
+  "files": [
+    "dist",
+    "package.json",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/llucasspot/mygoodstack.git",
+    "directory": "packages/di-react"
+  },
+  "bugs": {
+    "url": "https://github.com/llucasspot/mygoodstack/issues"
+  },
+  "keywords": [
+    "react",
+    "di",
+    "dependency injection"
+  ],
   "scripts": {
-    "build": "microbundle",
-    "dev": "microbundle watch",
+    "dev": "vite",
+    "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mygoodstack/di-core": "workspace:^0.1.2",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "@mygoodstack/di-core": "workspace:^0.1.2"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
@@ -32,7 +49,8 @@
     "tsup": "^8.0.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.30.1",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "vite-plugin-dts": "^4.5.4"
   },
   "publishConfig": {
     "access": "public"
