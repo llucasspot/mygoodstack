@@ -1,8 +1,8 @@
 {
   "name": "@mygoodstack/di-react",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Dependency injection for React",
-  "module": "./dist/index.mjs",
+  "module": "./dist/di-react.module.js",
   "types": "./dist/index.d.ts",
   "source": "src/index.ts",
   "files": [
@@ -24,8 +24,8 @@
     "dependency injection"
   ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "microbundle",
+    "dev": "microbundle watch",
     "lint": "eslint .",
     "preview": "vite preview"
   },
