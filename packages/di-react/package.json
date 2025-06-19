@@ -1,6 +1,6 @@
 {
   "name": "@mygoodstack/di-react",
-  "version": "0.1.10",
+  "version": "0.1.13",
   "description": "Dependency injection for React",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
