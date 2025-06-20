@@ -1,6 +1,6 @@
 {
   "name": "@mygoodstack/di-vue",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Dependency injection for Vue",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -24,11 +24,9 @@
     "dev": "vite",
     "preview": "vite preview"
   },
-  "dependencies": {
-    "@mygoodstack/di-core": "workspace:^0.1.2"
-  },
   "peerDependencies": {
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "@mygoodstack/di-core": "workspace:^0.1.3"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.3",

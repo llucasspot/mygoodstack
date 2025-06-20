@@ -1,4 +1,4 @@
-import type {App} from "vue";
+import {App} from "vue";
 
 import DIProvider from './di-context/di.provider.vue'
 export {useDI} from './di-context/use-di.hook'
