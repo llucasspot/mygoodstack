@@ -1,10 +1,10 @@
 import {containerByEnv} from "../container/containerByEnv";
-import {Scope, Type} from "../types";
+import {Type, Scope} from "../types";
 import {adapter} from "./adapter";
 
-export const singleton = <T>(
+export const transient = <T>(
     env: keyof typeof containerByEnv = 'production',
 ) =>
     (target: Type<T>): void => {
-        adapter(target, Scope.Singleton, env)(target)
+        adapter(target, Scope.Transient, env)(target)
     };

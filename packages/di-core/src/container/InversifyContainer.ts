@@ -1,9 +1,23 @@
-import {Container, inject as inversifyInject, injectable as inversifyInjectable} from "inversify";
-import type {Token, Type} from "../types";
+import {
+    BindInWhenOnFluentSyntax,
+    Container,
+    inject as inversifyInject,
+    injectable as inversifyInjectable
+} from "inversify";
+import {Token, Type, Scope} from "../types";
 import {ContainerI} from "./ContainerI";
 
 export class InversifyContainer implements ContainerI {
     private container;
+
+    private scopeMapping = {
+        [Scope.Singleton]: <T>(binding: BindInWhenOnFluentSyntax<T>) => binding.inSingletonScope(),
+        [Scope.Transient]: <T>(binding: BindInWhenOnFluentSyntax<T>) => binding.inTransientScope(),
+        [Scope.ResolutionScoped]: <T>(binding: BindInWhenOnFluentSyntax<T>) => binding.inRequestScope(),
+        [Scope.ContainerScoped]: <T>(binding: BindInWhenOnFluentSyntax<T>) => {
+            throw new Error('ContainerScoped not supported')
+        },
+    } as const;
 
     constructor(container: Container) {
         this.container = container;
@@ -17,9 +31,10 @@ export class InversifyContainer implements ContainerI {
         return new InversifyContainer(new Container({parent: this.container}));
     }
 
-    register<T>(token: Token<T>, provider: Type<T>): void {
+    register<T>(token: Token<T>, provider: Type<T>, scope: Scope): void {
         const _token = ContainerI.getToken(token);
-        this.container.bind<T>(_token).to(provider).inSingletonScope();
+        const binding = this.container.bind<T>(_token).to(provider);
+        this.scopeMapping[scope](binding);
     }
 
     resolve<T>(token: Token<T>): T {

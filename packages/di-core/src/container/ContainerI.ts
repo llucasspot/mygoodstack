@@ -1,4 +1,4 @@
-import type {Token, Type} from "../types";
+import {Token, Type, Scope} from "../types";
 
 export abstract class ContainerI {
 
@@ -11,7 +11,7 @@ export abstract class ContainerI {
 
     abstract createChildContainer(): ContainerI
 
-    abstract register<T>(token: Token<T>, provider: Type<T>): void;
+    abstract register<T>(token: Token<T>, provider: Type<T>, scope: Scope): void;
 
     abstract resolve<T>(token: Token<T>): T;
 

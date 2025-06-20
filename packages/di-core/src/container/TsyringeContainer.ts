@@ -1,9 +1,16 @@
 import {container as tsyringeContainer, type DependencyContainer, Lifecycle, inject as tsyringeInject, injectable as tsyringeInjectable} from "tsyringe";
-import type {Token, Type} from "../types";
+import {Token, Type, Scope} from "../types";
 import {ContainerI} from "./ContainerI";
 
 export class TsyringeContainer implements ContainerI {
     private container: DependencyContainer;
+
+    private scopeMapping = {
+        [Scope.Singleton]: Lifecycle.Singleton,
+        [Scope.Transient]: Lifecycle.Transient,
+        [Scope.ResolutionScoped]: Lifecycle.ResolutionScoped,
+        [Scope.ContainerScoped]: Lifecycle.ContainerScoped,
+    } as const;
 
     private constructor(container: DependencyContainer) {
         this.container = container;
@@ -17,9 +24,9 @@ export class TsyringeContainer implements ContainerI {
         return new TsyringeContainer(this.container.createChildContainer());
     }
 
-    register<T>(token: Token<T>, provider: Type<T>): void {
+    register<T>(token: Token<T>, provider: Type<T>, scope: Scope): void {
         const _token = ContainerI.getToken(token);
-        this.container.register(_token, {useClass: provider}, {lifecycle: Lifecycle.ContainerScoped});
+        this.container.register(_token, {useClass: provider}, {lifecycle: this.scopeMapping[scope]});
     }
 
     resolve<T>(token: Token<T>): T {

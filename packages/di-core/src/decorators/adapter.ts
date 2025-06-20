@@ -1,10 +1,11 @@
 import {containerByEnv} from "../container/containerByEnv";
 import {ContainerI} from "../container/ContainerI";
-import type {Token, Type} from "../types";
+import {Scope, Token, Type} from "../types";
 import {injectable} from "./injectable";
 
 export const adapter = <T>(
     port: Token<T>,
+    scope: Scope = Scope.Singleton,
     env: keyof typeof containerByEnv = 'production',
 ) =>
     (target: Type<T>): void => {
@@ -14,5 +15,5 @@ export const adapter = <T>(
 
         const container = containerByEnv[env]
         injectable()(target);
-        container.register(port, target)
+        container.register(port, target, scope)
     };
