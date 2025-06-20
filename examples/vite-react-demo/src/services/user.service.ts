@@ -1,7 +1,7 @@
-import {inject, singleton} from "@mygoodstack/di-react";
+import {inject, transient} from "@mygoodstack/di-react";
 import {UserRepositoryPort} from "./user.repository.port";
 
-@singleton()
+@transient()
 export class UserService {
 
     constructor(

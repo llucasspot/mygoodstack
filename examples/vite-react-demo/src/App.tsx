@@ -1,6 +1,6 @@
 import viteLogo from '/vite.svg'
 import './App.css'
-import {useInstance} from "@mygoodstack/di-react";
+import {containerByEnv, useDI, useInstance} from "@mygoodstack/di-react";
 import {useState} from 'react'
 import reactLogo from './assets/react.svg'
 import {UserService} from "./services/user.service";
@@ -8,6 +8,7 @@ import {UserService} from "./services/user.service";
 function App() {
     const [count, setCount] = useState(0)
 
+    const {setContainer} = useDI();
     const userService = useInstance(UserService);
 
     return (
@@ -28,6 +29,12 @@ function App() {
                 <p>
                     Edit <code>src/App.tsx</code> and save to test HMR
                 </p>
+                <button onClick={() => setContainer(() => containerByEnv.development)}>
+                    change container to development
+                </button>
+                <button onClick={() => setContainer(() => containerByEnv.mock)}>
+                    change container to mock
+                </button>
             </div>
             <p className="read-the-docs">
                 Click on the Vite and React logos to learn more
