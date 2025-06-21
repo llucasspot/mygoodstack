@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import {useInstance} from "@mygoodstack/di-vue";
+import {containerByEnv, useDI, useInstance} from "@mygoodstack/di-vue";
 import HelloWorld from './components/HelloWorld.vue'
 import {UserService} from "./services/user.service";
 
+const {setContainer} = useDI();
 const userService = useInstance(UserService);
 
 </script>
@@ -16,7 +17,13 @@ const userService = useInstance(UserService);
         <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
       </a>
     </div>
-    <HelloWorld :msg="`Vite + Vue + ${userService.getUserName()}`" />
+  <HelloWorld :msg="`Vite + Vue + ${userService.getUserName()}`" />
+    <button @click="setContainer(containerByEnv.development)">
+      change container to development
+    </button>
+    <button @click="setContainer(containerByEnv.mock)">
+      change container to mock
+    </button>
 </template>
 
 <style scoped>

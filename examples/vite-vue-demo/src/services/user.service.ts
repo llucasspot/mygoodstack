@@ -1,7 +1,7 @@
-import {inject, singleton} from "@mygoodstack/di-vue";
+import {inject, transient} from "@mygoodstack/di-vue";
 import {UserRepositoryPort} from "./user.repository.port";
 
-@singleton()
+@transient()
 export class UserService {
 
     constructor(
