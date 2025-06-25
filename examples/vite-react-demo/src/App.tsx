@@ -3,6 +3,7 @@ import './App.css'
 import {containerByEnv, useDI, useInstance} from "@mygoodstack/di-react";
 import {useState} from 'react'
 import reactLogo from './assets/react.svg'
+import {SignInFormExemple} from "./form-exemple/sign-in-form-exemple";
 import {UserService} from "./services/user.service";
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
             <p className="read-the-docs">
                 Click on the Vite and React logos to learn more
             </p>
+            <SignInFormExemple />
         </>
     )
 }
