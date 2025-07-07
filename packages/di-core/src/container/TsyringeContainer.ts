@@ -1,6 +1,20 @@
-import {container as tsyringeContainer, type DependencyContainer, Lifecycle, inject as tsyringeInject, injectable as tsyringeInjectable} from "tsyringe";
+import {
+    container as tsyringeContainer,
+    type DependencyContainer,
+    Lifecycle,
+    inject as tsyringeInject,
+    injectable as tsyringeInjectable,
+    Provider, isClassProvider
+} from "tsyringe";
 import {Token, Type, Scope} from "../types";
 import {ContainerI} from "./ContainerI";
+
+type Container = DependencyContainer & {
+    parent: DependencyContainer,
+    _registry: {
+        _registryMap: Map<string, [{ provider: Provider }]>
+    }
+};
 
 export class TsyringeContainer implements ContainerI {
     private container: DependencyContainer;
@@ -13,7 +27,41 @@ export class TsyringeContainer implements ContainerI {
     } as const;
 
     private constructor(container: DependencyContainer) {
-        this.container = container;
+        this.container = container as Container;
+    }
+
+    static consoleLog(container: DependencyContainer) {
+        const _container = container as Container
+        if (_container.parent) {
+            this.consoleLog(_container.parent)
+        }
+        const registryMap = _container._registry._registryMap
+        if (registryMap.size === 0) {
+            return;
+        }
+        // @ts-ignore
+        const entries = Array.from(registryMap).map(([key, value]: [string, [{ provider: Provider }]], index) => {
+            const token = key;
+            const provider = value[0]?.provider
+            if (isClassProvider(provider)) {
+                // @ts-ignore
+                const useClass: string = provider.useClass.name
+                return [
+                    index,
+                    {
+                        token,
+                        useClass,
+                    },
+                ];
+            }
+            return [
+                index,
+                {
+                    token,
+                },
+            ];
+        });
+        console.table(Object.fromEntries(entries));
     }
 
     static create() {
@@ -45,5 +93,15 @@ export class TsyringeContainer implements ContainerI {
         return function (target: any) {
             tsyringeInjectable()(target);
         };
+    }
+
+    consoleLog() {
+        console.log('\n')
+        console.log('--------------------------------')
+        console.log('----- @mygoodstack/di-core -----')
+        console.log('----- services injected --------')
+        console.log('--------------------------------')
+        TsyringeContainer.consoleLog(this.container)
+        console.log('\n')
     }
 }

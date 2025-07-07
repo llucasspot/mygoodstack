@@ -18,4 +18,6 @@ export abstract class ContainerI {
     abstract inject<T>(token: Token<T>): ParameterDecorator
 
     abstract injectable(): ClassDecorator
+
+    abstract consoleLog(): void
 }
